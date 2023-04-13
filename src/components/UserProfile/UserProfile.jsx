@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { UserContext } from './components/UserContext/UserContext.jsx';
-
+import UserContext from '../UserContext/UserContext';
+import { Menu } from 'ant-design-vue';
 const UserProfile = () => {
   const { user, setUser } = useContext(UserContext);
 
