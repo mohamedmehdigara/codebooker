@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -38,10 +38,24 @@ import Slide from '@mui/material/Slide';
 import Library from './components/Library/Library';
 import logo from './logo.svg';
 import './App.css';
+import UserProfile from './components/UserProfile/UserProfile';
+import { useState } from 'react';
+import UserContext from './components/UserContext/UserContext';
 
 const label = { inputProps: { 'aria-label': 'Color switch demo' } };
 
+
 export default function App() {
+	const [anchorEl, setAnchorEl] = useState(null);
+const open = Boolean(anchorEl);
+
+const handleClick = (event) => {
+	setAnchorEl(event.currentTarget);
+  };
+
+const handleClose = () => {
+	setAnchorEl(null);
+  };
 	return (
 		<div className="App">
 			<Box sx={{ flexGrow: 1 }}>
@@ -56,6 +70,10 @@ export default function App() {
 						>
 							<MenuIcon />
 						</IconButton>
+						
+
+<UserContext/>
+<UserProfile/>
 						<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 							CodeBooker
 						</Typography>
