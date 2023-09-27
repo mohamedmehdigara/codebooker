@@ -1,4 +1,4 @@
-import  * as React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -38,53 +38,52 @@ import Slide from '@mui/material/Slide';
 import Library from './components/Library/Library';
 import logo from './logo.svg';
 import './App.css';
-import UserProfile from './components/UserProfile/UserProfile';
-import { useState } from 'react';
 import UserContext from './components/UserContext/UserContext';
+import UserProfile from './components/UserProfile/UserProfile';
+
 
 const label = { inputProps: { 'aria-label': 'Color switch demo' } };
 
-
 export default function App() {
-	const [anchorEl, setAnchorEl] = useState(null);
-const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
-const handleClick = (event) => {
-	setAnchorEl(event.currentTarget);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-const handleClose = () => {
-	setAnchorEl(null);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
-	return (
-		<div className="App">
-			<Box sx={{ flexGrow: 1 }}>
-				<AppBar position="fixed">
-					<Toolbar>
-						<IconButton
-							size="large"
-							edge="start"
-							color="inherit"
-							aria-label="menu"
-							sx={{ mr: 2 }}
-						>
-							<MenuIcon />
-						</IconButton>
-						
 
-<UserContext/>
-<UserProfile/>
-						<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-							CodeBooker
-						</Typography>
-						<NotificationsIcon />
-						<Switch {...label}
-							inputProps={{ 'aria-label': 'controlled' }} />
-						<Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-					</Toolbar>
-				</AppBar>
-				<Library />
-			</Box>
-		</div>
-	);
+  return (
+      <div className="App">
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="fixed">
+            <Toolbar>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton>
+
+              <UserContext /> {/* This should render the UserContext component */}
+              <UserProfile />
+
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                CodeBooker
+              </Typography>
+              <NotificationsIcon />
+              <Switch {...label} inputProps={{ 'aria-label': 'controlled' }} />
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            </Toolbar>
+          </AppBar>
+          <Library />
+        </Box>
+      </div>
+  );
 }
