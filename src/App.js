@@ -40,6 +40,8 @@ import logo from './logo.svg';
 import './App.css';
 import UserContext from './components/UserContext/UserContext';
 import UserProfile from './components/UserProfile/UserProfile';
+import { UserContextProvider } from './components/UserContext/UserContextProvider';
+
 
 
 const label = { inputProps: { 'aria-label': 'Color switch demo' } };
@@ -58,6 +60,7 @@ export default function App() {
 
   return (
       <div className="App">
+        <UserContextProvider>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="fixed">
             <Toolbar>
@@ -84,6 +87,7 @@ export default function App() {
           </AppBar>
           <Library />
         </Box>
+        </UserContextProvider>
       </div>
   );
 }

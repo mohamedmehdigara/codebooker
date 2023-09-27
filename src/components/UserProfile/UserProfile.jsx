@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import UserContext from '../UserContext/UserContext';
+import { useUserContext } from '../UserContext/UserContextProvider';
+
 
 const UserProfile = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, updateUser } = useUserContext();
+
 
   const handleLogout = () => {
-    setUser(null);
+    updateUser(null);
   };
 
   return (
